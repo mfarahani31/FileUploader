@@ -28,4 +28,8 @@ public class InformationService {
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }
     }
+
+    public List<Information> getAll() {
+        return this.informationRepository.findAll();
+    }
 }

@@ -13,16 +13,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RestController
-@RequestMapping("/api/v1/files")
+@RequestMapping("/api/v1/information")
 public class InformationController {
     private static final Logger logger =
             LoggerFactory.getLogger(InformationController.class);
@@ -55,4 +54,10 @@ public class InformationController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
     }
 
+    @Operation(summary = "Fetch all data")
+    @ApiResponse(responseCode = "200", description = "Found the information", content = {@Content(mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = Information.class))})
+    @GetMapping(value = "/getAll", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Information>> getAll() {
+        return ResponseEntity.status(HttpStatus.OK).body(this.informationService.getAll());
+    }
 }
