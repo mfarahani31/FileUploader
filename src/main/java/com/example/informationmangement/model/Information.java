@@ -27,22 +27,22 @@ public class Information extends BaseEntity implements Serializable {
     @Column(name = "source")
     private String source;
 
-    @Column(name = "codeListCode")
+    @Column(name = "code_list_Code")
     private String codeListCode;
 
-    @Column(name = "displayValue")
+    @Column(name = "display_value")
     private String displayValue;
 
-    @Column(name = "longDescription")
+    @Column(name = "long_description")
     private String longDescription;
 
-    @Column(name = "fromDate")
+    @Column(name = "from_date")
     private String fromDate;
 
-    @Column(name = "toDate")
+    @Column(name = "to_date")
     private String toDate;
 
-    @Column(name = "sortingPriority")
+    @Column(name = "sorting_priority")
     @Nullable
     private String sortingPriority;
 }
