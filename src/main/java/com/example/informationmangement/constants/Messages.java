@@ -5,4 +5,5 @@ public class Messages {
     public static String UPLOAD_SUCCESSFUL = "Uploaded the file successfully: ";
     public static String UPLOAD_UNSUCCESSFUL = "Could not upload the file: ";
     public static String PLEASE_UPLOAD_CSV = "Please upload a csv file!";
+    public static String FILE_TOO_LARGE = "File too large!!!";
 }
