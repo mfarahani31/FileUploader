@@ -20,10 +20,10 @@ public class InformationService {
         this.informationRepository = informationRepository;
     }
 
-    public void save(MultipartFile file) {
+    public List<Information> save(MultipartFile file) {
         try {
             List<Information> informationList = CSVHelper.csvToInformations(file.getInputStream());
-            informationRepository.saveAll(informationList);
+            return informationRepository.saveAll(informationList);
         } catch (IOException e) {
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }
