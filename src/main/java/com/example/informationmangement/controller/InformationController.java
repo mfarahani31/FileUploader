@@ -5,6 +5,8 @@ import com.example.informationmangement.helper.CSVHelper;
 import com.example.informationmangement.model.Information;
 import com.example.informationmangement.service.InformationService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +35,8 @@ public class InformationController {
     }
 
     @Operation(summary = "Upload a new CSV file")
-    @ApiResponse(responseCode = "201", description = "Uploaded the file successfully")
+    @ApiResponse(responseCode = "201", description = "Uploaded the file successfully",
+            content = {@Content(schema = @Schema(implementation = String.class))})
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         String message;
