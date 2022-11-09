@@ -1,8 +1,6 @@
-create sequence hibernate_sequence start with 1 increment by 1;
-
 create table informations
 (
-    code            varchar(255) not null,
+    code            varchar(255) not null primary key,
     created_at      timestamp    not null,
     updated_at      timestamp    not null,
     codeListCode    varchar(255),
@@ -12,7 +10,6 @@ create table informations
     fromDate        varchar(255),
     toDate          varchar(255),
     sortingPriority varchar(255),
-    version         int,
-    primary key (code),
+    version         int
 );
 commit;
