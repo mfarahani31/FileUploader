@@ -1,13 +1,13 @@
-package com.example.fileuploader;
+package com.example.informationmangement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FileUploaderApplication {
+public class InformationManagementApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FileUploaderApplication.class, args);
+        SpringApplication.run(InformationManagementApplication.class, args);
     }
 
 }

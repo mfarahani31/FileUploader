@@ -1,10 +1,10 @@
-package com.example.fileuploader;
+package com.example.informationmangement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FileUploaderApplicationTests {
+class InformationManagementApplicationTests {
 
     @Test
     void contextLoads() {
