@@ -5,8 +5,6 @@ import com.example.informationmangement.helper.CSVHelper;
 import com.example.informationmangement.model.Information;
 import com.example.informationmangement.service.InformationService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/api/v1/files")
@@ -37,8 +33,7 @@ public class InformationController {
     }
 
     @Operation(summary = "Upload a new CSV file")
-    @ApiResponse(responseCode = "201", description = "Uploaded the file successfully",
-            content = {@Content(mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = String.class))})
+    @ApiResponse(responseCode = "201", description = "Uploaded the file successfully")
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         String message;

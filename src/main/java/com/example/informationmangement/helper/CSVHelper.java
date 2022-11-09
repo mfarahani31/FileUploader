@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -32,7 +31,7 @@ public class CSVHelper {
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
 
-            List<Information> developerTutorialList = new ArrayList<>();
+            List<Information> informationList = new ArrayList<>();
 
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
             // Todo; refactor set date for fromDate and to Date
@@ -43,15 +42,14 @@ public class CSVHelper {
                         csvRecord.get("codeListCode"),
                         csvRecord.get("displayValue"),
                         csvRecord.get("longDescription"),
-                        new Date(csvRecord.get("fromDate")),
-                        new Date(csvRecord.get("toDate")),
-                        Integer.parseInt(csvRecord.get("sortingPriority"))
-                );
+                        csvRecord.get("fromDate"),
+                        csvRecord.get("toDate"),
+                        csvRecord.get("sortingPriority"));
 
-                developerTutorialList.add(information);
+                informationList.add(information);
             }
 
-            return developerTutorialList;
+            return informationList;
         } catch (IOException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
         }

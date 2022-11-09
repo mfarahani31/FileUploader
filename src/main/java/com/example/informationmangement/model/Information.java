@@ -1,13 +1,16 @@
 package com.example.informationmangement.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "informations")
@@ -34,11 +37,12 @@ public class Information extends BaseEntity implements Serializable {
     private String longDescription;
 
     @Column(name = "fromDate")
-    private Date fromDate;
+    private String fromDate;
 
     @Column(name = "toDate")
-    private Date toDate;
+    private String toDate;
 
     @Column(name = "sortingPriority")
-    private int sortingPriority;
+    @Nullable
+    private String sortingPriority;
 }
